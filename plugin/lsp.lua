@@ -28,6 +28,7 @@ vim.filetype.add({
 		[".*/.*ansible.*/.*ya?ml"] = "yaml.ansible",
 		[".*/.*collections.*/.*ya?ml"] = "yaml.ansible",
 		[".*/local.ya?ml"] = "yaml.ansible",
+		[".*/.j2"] = "jinja",
 	},
 })
 

@@ -8,6 +8,7 @@ require("conform").setup({
 		markdown = { "prettier" },
 		lua = { "stylua" },
 		python = { "black" },
+		html = { "prettier" },
 	},
 	format_on_save = {
 		lsp_fallback = true,
