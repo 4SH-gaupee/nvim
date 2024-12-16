@@ -54,6 +54,22 @@ cmp.setup({
 	}),
 })
 
+require("cmp").setup({
+	sources = {
+		{ name = "path" },
+	},
+})
+cmp.setup({
+	sources = {
+		{
+			name = "path",
+			option = {
+				-- Options go into this table
+			},
+		},
+	},
+})
+
 vim.diagnostic.config({
 	-- update_in_insert = true,
 	float = {

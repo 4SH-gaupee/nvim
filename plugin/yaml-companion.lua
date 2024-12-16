@@ -3,7 +3,6 @@ local cfg = require("yaml-companion").setup({
 	builtin_matchers = {
 		kubernetes = { enabled = true },
 	},
-
 	-- schemas available in Telescope picker
 	schemas = {
 		kubernetes = "*.yaml",
@@ -19,27 +18,6 @@ local cfg = require("yaml-companion").setup({
 		["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
 		["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
 		["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
-
-		--		-- not loaded automatically, manually select with
-		--		-- :Telescope yaml_schema
-		--		{
-		--			name = "Argo CD Application",
-		--			uri = "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json",
-		--		},
-		--		{
-		--			name = "SealedSecret",
-		--			uri = "https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/bitnami.com/sealedsecret_v1alpha1.json",
-		--		},
-		--		-- schemas below are automatically loaded, but added
-		--		-- them here so that they show up in the statusline
-		--		{
-		--			name = "Kustomization",
-		--			uri = "https://json.schemastore.org/kustomization.json",
-		--		},
-		--		{
-		--			name = "GitHub Workflow",
-		--			uri = "https://json.schemastore.org/github-workflow.json",
-		--		},
 	},
 
 	lspconfig = {
@@ -47,12 +25,13 @@ local cfg = require("yaml-companion").setup({
 			yaml = {
 				validate = true,
 				schemaStore = {
-					enable = false,
-					url = "",
+					enable = true,
+					url = "https://www.schemastore.org/api/json/catalog.json",
 				},
 
 				-- schemas from store, matched by filename
 				-- loaded automatically
+				schemaDownload = { enable = true },
 				schemas = require("schemastore").yaml.schemas({
 					select = {
 						"kustomization.yaml",

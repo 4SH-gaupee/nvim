@@ -49,6 +49,7 @@ Plug("nvim-lualine/lualine.nvim")
 
 Plug("nvim-tree/nvim-web-devicons")
 
+Plug("ntpeters/vim-better-whitespace")
 vim.call("plug#end")
 
 vim.cmd([[colorscheme tokyonight]])
