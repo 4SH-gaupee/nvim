@@ -1,4 +1,5 @@
 require("custom/keymaps")
+require("custom/filetype")
 
 --[[
 

@@ -10,3 +10,21 @@ vim.filetype.add({
 		[".*/.j2"] = "jinja",
 	},
 })
+local lint_augroup = vim.api.nvim_create_augroup('setIndent', { clear = true })
+vim.api.nvim_create_autocmd('Filetype', {
+    group = 'setIndent',
+    pattern = {
+        'css',
+        'html',
+        'javascript',
+        'lua',
+        'markdown',
+        'md',
+        'typescript',
+        'scss',
+        'xml',
+        'xhtml',
+        'yaml'
+    },
+    command = 'setlocal shiftwidth=2 tabstop=2'
+})
